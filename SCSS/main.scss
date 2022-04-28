@@ -1,0 +1,601 @@
+/*DEFINICIÓN DE VARIABLES*/
+@import "colores";
+@import "fuentes";
+@import "estructura";
+@import "mixins";
+
+
+/* ESTILOS GENERALES PARA TODAS LAS PÁGINAS*/
+* {
+    Margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.footer-flex {
+    @include flex-row;
+    justify-content: $centrar; 
+    align-self: $centrar; margin: 2%; padding: 1%;
+    max-width: 100%; flex-wrap: wrap;
+}
+.bodyQuienes, .bodyHaceteCliente, .bodyServicios, .bodyContacto {
+    background-color: $color-de-fondo;
+    background-image: none;
+}
+.header-flex { /* SE AGREGÓ GRADIENTE*/
+    border-color: none;
+    border-width: 0px; border-style: none;
+    background-color: #22549e; 
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+    height: 7,5rem;
+    display: flex;
+    justify-content: $centrar;
+    flex-flow: row nowrap; 
+    background-image: linear-gradient(to bottom, blue, rgb(105, 119, 197));
+}   
+#logo {
+    width: 4rem; height: 4em;
+    border-width: 1px; border-color: $color-borde-principal; border-style: solid;
+    margin: 1%;
+}
+#textoNombreCeleste {
+    text-align: $centrar;
+    font-family: Comic-sans, sans-serif; font-size: 150%; 
+    font-style: normal; font-variant: normal; font-weight: $negrita; 
+    line-height: 130%; color: white; background-color: #2A98D0; 
+    background-size: auto; padding: 1%; margin-top: 0%; margin-bottom: 0%; 
+    margin-right: auto; margin-left: 15%;
+    height: 6%;
+    width: 8.75rem;
+} 
+#slogan {
+    display: inline-block;
+    font-family: Comic-sans, sans-serif; font-size: 90%; 
+    font-style: normal; font-variant: normal; font-weight: $negrita; 
+    line-height: 120%; color: $color-secundario; text-decoration: underline; padding: 0.5%;
+    margin-top: 0%; margin-bottom: 0%; margin-right: 1%; margin-left: 1%;
+} 
+.menu { 
+    width: 50%;
+    animation-name: animacionMenu;
+    animation-duration: 4s;
+    animation-iteration-count: 4;
+}
+.nav {
+    padding: 5px;
+    background-color: antiquewhite;
+    text-align: $centrar;
+    display: inline;
+}
+/*Aquí utilizo la sintaxis "&" de SCSS y la anidación*/
+ul.nav > li {
+    display: inline-block;
+    padding: 12px 20px;
+        &:hover {
+            background-color: #2A98D0;}
+        &:active {
+            background-color: $color-secundario;}    
+    }
+.negrita {
+    font-weight: $negrita;
+}
+h1 
+    {
+        line-height: 130%; 
+        font: $h1-font; color: $texto-negro;
+}
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('../Bancafacil/Fonts/Roboto/Roboto-Regular.ttf');
+}
+/*INSTRUCCIONES PARA PÁGINA INDEX*/
+.main-flex > div {
+    @include flex-row;
+    position: relative; top: 20px;
+    align-items: $centrar;
+    justify-content: $centrar;
+    text-align: $centrar;
+    transition: all 0.5s ease-in;
+}
+.imagenContexto {
+    position: relative;
+    top: 15%;
+    left: 0%;
+    margin: 0%; padding: 0%;
+    display: flex; align-items: $centrar;
+}
+.landing-text {
+    height: auto; 
+    width: 17rem;
+    background-color: $color-de-fondo;  border-color: $color-borde-principal; border-width: 2px;
+    border-style: solid;
+    text-align: $centrar;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    @include flex-column; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    animation-duration: 3s;
+    animation-name: slidein;
+    position: relative; right: 3%;
+}
+.strongbox {
+    @include flex-column; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative; right: 1%;
+}
+/*INSTRUCCIONES DE PÁGINA INDEX Y comunes con otras*/
+.landing-text:hover { /* ESTA SON LAS ANIMACIONES DEL LANDING TEXT DENTRO DEL CUADRO DE INDEX.HTML, CAMBIA DE COLOR AL POSAR EL MOUSE 
+    y viene desde la derecha*/
+background-color: $color-secundario;
+}
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+.topnav {
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+    background-color: antiquewhite;
+    padding: 0%;
+}
+@keyframes animacionMenu { /* ESTA ES LA ANIMACION DEL MENÚ*/
+    0%   {background-color: antiquewhite;}
+    25%  {background-color: rgb(7, 19, 92);}
+    50%  {background-color: rgb(11, 199, 206);}
+    100% {background-color: rgb(148, 156, 255);}
+}
+#iconosFinales, #iconosFinalesIndex {
+    width: 80%;
+    align-items: $centrar;
+    padding: 5px;
+    background-color: none;
+}
+.espacio { visibility: hidden;}
+.main-flex-contacto > div {
+    @include flex-column;
+    align-items: $centrar;
+    justify-content: $centrar;
+    text-align: $centrar;
+}
+.main-flex { background: url("../imagenes/abuenotebook.png");
+}
+.final #iconosFinalesContacto, #iconosFinalesIndex {
+    position: relative;
+    top: 50%;
+}
+#textoFooterIndex, {
+    @include flex-row;
+    justify-content: $centrar; 
+    margin: 0%; padding: 0%;
+    flex-wrap: wrap;
+    font-size: 130%; 
+    font-style: normal; font-variant: normal; font-weight: $negrita;
+    position: relative; top: 70px;
+}
+#textoFooterIndex, #textoFooterContacto {
+max-width: 500px; 
+}
+.redes  {
+    width: 100%;
+    max-width: 100%;
+}
+/* INSTRUCCIONES ESPECIFICAS DE PÁGINA CONTACTO*/
+#tituloContacto {
+    @include flex-column;
+    text-align: $centrar;
+    color: $color-texto-principal;
+    margin: 0.5%;
+    animation-name: colortexto;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+#callCenterImagen {
+    @include flex-column;
+    align-content: $centrar;
+    color: $color-texto-principal;
+    border-width: 1px; border-color: $color-borde-principal; border-style: solid;
+    border-radius: 25px;
+    margin: 1%;
+    width: 90%; height: auto; min-height: 150px;
+    animation-name: rotar;
+    animation-duration: 4s;
+}
+.formulario-contacto {
+    border-color: $color-borde-principal;
+    border-width: 2px; border-style: none;
+    height: 150px; width: 350px;
+    padding: 2%;
+    margin: 0.5%;
+    text-align: left; color: $texto-negro;    
+}
+.formulario-contacto-mensaje {
+    @include flex-row;
+    flex-wrap: wrap;
+    justify-content: $centrar;
+    height: 270px; width: 310px;
+    padding: 0%;
+    margin: 1%;
+    text-align: $centrar; color: black;    
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+#servirteMensaje {
+    border-color: $color-borde-principal;
+    border-width: 2px; border-style: solid;
+}
+#textoFooterContacto {
+    @include flex-row;
+    justify-content: $centrar; 
+    margin: 0%; padding: 0%;
+    flex-wrap: wrap;
+    font-size: 130%; 
+    font-style: normal; font-variant: normal; font-weight: $negrita;
+}
+/* AQUÍ INCLUYO @EXTEND para donde los botones "enviar" y "limpiar" adquieren caracteríscitas de .botonesContacto gracias a @extend */
+.botonesContacto {
+    position: relative;
+    top: 40px;
+    width: fit-content;
+    text-align: $centrar;
+	border-radius:5px;
+	border:1px solid black;
+    }
+.botonEnviar {
+    @extend .botonesContacto;
+    background-color: $color-secundario;
+    }
+.botonLimpiar {
+    @extend .botonesContacto;
+    background-color: $color-texto-principal;
+    }
+/*FIN DE INCLUSIÓN DE @EXTEND */
+#iconosFinalesContacto {
+    height: 70px;
+    width: 60%;
+    padding: 5px;
+    @include flex-row;
+    justify-content: $centrar;
+    flex-wrap: wrap;
+}
+.containerContacto, .containerVolver {
+    width: 100%;
+    height: 110px;
+    @include flex-row;
+    justify-content: $centrar;
+    flex-wrap: wrap;
+}
+@keyframes colortexto { /*ANIMACIÓN DE CAMBIO DE COLOR DEL TEXTO "CONTACTO"*/
+    from {color: $color-texto-principal;}
+    to {color: red}
+}
+@keyframes rotar { /*ANIMACIÓN DE ROTACIÓN DE LA IMAGEN DE PÁGINA CONTACTO*/
+    from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    }
+    to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+    }
+}
+/*ANIMACIÓN DEL TIPEO ¿En qué podemos servirte?*/
+.typewriter {
+    overflow: hidden;  
+    border-right: .15em solid blue; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em; 
+    animation: 
+        tipeo 6.5s steps(40, end),
+        parpadeo-cursor 1.75s step-end infinite;
+}
+@keyframes tipeo {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes parpadeo-cursor {
+    from, to { border-color: transparent }
+    50% { border-color: blue; }
+}
+.botonvolver {
+    width: 250px;
+    height: 30px;
+    margin: 5px;
+    padding: 8px;
+    position: relative;
+    bottom: 20px;
+    @include flex-row;
+    flex-wrap: wrap; 
+    align-items: $centrar;
+    justify-content: $centrar;
+    margin: 0%; padding: 0%;
+}
+/* CREACIÓN DE UN MAP PARA REDES SOCIALES*/
+#youtube, #instagram, #twitter {
+    background-color: map-get($estilos, color);
+    text-align: map-get($estilos, centro);
+    padding: map-get($estilos, padding);
+}
+/* INSTRUCCIONES ESPECIFICAS DE PÁGINA QUIENES SOMOS*/
+.tituloQuienes {
+    text-align: $centrar;
+    color: #286cc5;
+    @include flex-column;
+    text-align: $centrar;
+    color: $color-texto-principal;
+}
+.textoQuienes {
+    height: 216px;
+    width: 400px;
+    background-color: white;  border-color: black; border-width: 2px;
+    border-style: solid;
+    text-align: $centrar;
+    position: relative;
+    top: 5%;
+    left: 6%;
+    color: $texto-negro;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    justify-content: $centrar; align-items: $centrar;
+}
+.quienesAyudaAbuela {
+    @include flex-row;
+    flex-wrap: wrap;
+    width: 435px;
+    height: auto;
+    margin: 5px;
+}
+.parrafoQuienes {
+    @include flex-row;
+    flex-wrap: wrap;
+}
+.proposito {
+    border-width: 5px; border-style: none;
+    padding: 0.5%;
+    width: 98%;
+    height: 800px;
+    position: relative;
+    top: 10px; left: 10px;
+    display: inline-block;  
+}
+.propositoTexto {
+    height: 236px;
+    width: 334px;
+    background-color: #2A98D0;  border-color: $color-borde-principal; border-width: 2px;
+    border-style: solid;
+    text-align: $centrar;
+    position: relative;
+    top: 5%;
+    left: 40%;
+    transform: translate(-50%, 50%);
+    color: $texto-negro;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    display: flex; justify-content: $centrar; align-items: $centrar;
+}
+.imagenTeam {
+    display: inline-block;
+    top: 0%;
+    overflow-x: hidden;
+    background-image: url("./bancafacil/imagenes/team.jpg");
+    background-repeat: no-repeat; 
+    width: 98%;
+    max-width: 1024px;
+    background-position: $centrar; 
+    margin: 10px auto;
+}
+.quienesContacto {
+    @include flex-column;
+    flex-wrap: wrap;
+}
+.botonVolver {
+    display: flex; justify-content: $centrar; align-items: $centrar;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, 50%);
+}
+/* INSTRUCCIONES ESPECIFICAS DE PÁGINA HACETE CLIENTE*/
+.haceteMain {
+    @include flex-column;
+    flex-wrap: wrap;
+    align-items: $centrar;
+    justify-content: $centrar;
+    text-align: $centrar;
+    width: 100%;
+    padding: 0px;
+}
+.tituloHaceteCliente, .haceteDetalle {
+    @include flex-column;
+    justify-content: $centrar; align-items: $centrar;
+    color: $color-texto-principal;
+    margin: 2%;
+    width: 98%;
+}
+.masVueltas {
+    @include flex-column;
+    flex-wrap: wrap;
+    height: 220px; width: 170px;
+    padding: 0.5%;
+    position: relative;
+    text-align: $centrar; color: #2A98D0;
+    top: 5%;
+    left: 5%;
+}
+#paraComenzar {
+    @include flex-column;
+    border-color: none;
+    border-width: 5px; border-style: none;
+    height: 60px; width: 230px;
+    padding: 0.5%;
+    position: relative;
+    top: 25%; left: 0px;
+    text-align: $centrar; color: $texto-negro;
+}
+.datosProspecto {
+    @include flex-column;
+    flex-wrap: wrap;
+    border-color: $color-borde-principal;
+    border-width: 2px; border-style: solid;
+    height: 260px; width: 220px;
+    padding: 2px;
+    margin: 2%;
+    position: relative;
+}
+#atencionRemota {
+    @include flex-column;
+    flex-wrap: wrap;
+    border-width: 1px; border-color: $color-borde-principal; border-style: solid;
+    margin: 0px;
+    width: 500px; height: 331px;
+    position: relative;
+    top: 15%; left: 25px;
+}
+#llamanos {
+    position: relative;
+    @include flex-column;
+    border-width: 1px; border-color: $color-borde-principal; border-style: solid;
+    margin: 1%;
+    width: 306px; height: 211px;
+    top: 40px; left: 30%;
+}
+.textoDocumentos {
+    border-color: $color-de-fondo;
+    background-color: #62b9e4;
+    border-width: 2px; border-style: solid;
+    height: 90px; width: 150px;
+    padding: 0.5%;
+    position: relative;
+    text-align: $centrar; color: #22549e;
+    top: -100px;
+    left: 25%;
+}
+.pedidoDocumentos {
+    width: 100%;
+    background-color: $color-de-fondo;
+    padding: 0%;
+    margin: 0px;
+    text-align: $centrar; justify-content: $centrar; align-items: $centrar;
+}
+#haceteTextoRecuadro1 , #haceteTextoRecuadro2, {
+    @include flex-column;
+    flex-wrap: wrap;
+    border-color: $color-borde-principal;
+    background-color: $color-de-fondo;
+    border-width: 2px; border-style: solid;
+    height: 45px; width: 320px;
+    padding: 0%;
+    margin: 2px;
+    text-align: $centrar; justify-content: $centrar; align-items: $centrar;
+    color: $texto-negro;
+    position: relative; top: 5px; left: 17%;
+}
+#linkContacto {
+    @include flex-column;
+    width: 100%;
+    align-items: $centrar; justify-content: $centrar;
+    padding: 0px;
+    margin: 1%;
+    color: $texto-negro;
+}
+/* INSTRUCCIONES ESPECIFICAS DE PÁGINA SERVICIOS*/
+.serviciosMain {
+    @include flex-column;
+    align-items: $centrar;
+    justify-content: $centrar;
+    text-align: $centrar;
+    padding: 0%;
+}
+.tituloServicios {
+    width: 180px;
+    @include flex-row-space;
+    color: $color-texto-principal;
+    margin: 2%;
+    max-width: 98%;
+}
+.textoServicios {
+    position: relative; top: 70px;
+    border-color: $color-borde-principal;
+    border-width: 2px; border-style: solid;
+    height: 130px; width: 350px;
+    background-color: $color-de-fondo;
+    padding: 0px;
+    margin: 5px;
+    @include flex-row-space;
+}
+.compu {
+    @include flex-row
+    text-align: $centrar; justify-content: $centrar;
+#dineroAcompu {
+    border-width: 1px; border-color: $color-borde-principal; border-style: solid;
+    margin: 0%;
+    width: 800px; height: 401px;
+    max-width: 98%;
+}
+.serviciosDetalle {
+    margin: 5px;
+}
+#comoTitulo {
+    position: relative;
+    display: inline;
+    top: 10px; left: 10%; 
+    color: $color-texto-principal;
+    margin: 3%;
+    max-width: 98%;
+}
+.comoLoHacemos {
+    width: 510px;
+    @include flex-column;
+    flex-wrap: wrap; 
+    border-color: $color-borde-principal;
+    border-width: 2px; border-style: solid;
+    height: 400px; width: 400px;
+    padding: 2%;
+    margin: 1%;
+    text-align: $centrar; color: $texto-negro;
+}
+#noTePreocupesTitulo {
+    position: relative;
+    display: inline;
+    width: 200px;
+    top: 10px; left: 80%; 
+    color: $color-texto-principal;
+    margin: 3%;
+    max-width: 98%;
+}
+.lee {
+    position: relative;
+    display: inline-block;
+    max-width: 98%;
+    margin: 5px;
+    top: 10%; left: 80%;
+}
+.parrafoNote {
+    position: relative;
+    display: inline-block;
+    border-color: $color-borde-principal;
+    border-width: 2px; border-style: solid;
+    height: 100px; width: 400px;
+    padding: 2%;
+    margin: 1%;
+    bottom: 76%; left: 80%;
+    text-align: $centrar; color: $texto-negro;
+}
+}
